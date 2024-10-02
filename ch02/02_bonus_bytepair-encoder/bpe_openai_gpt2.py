@@ -1,8 +1,4 @@
 # Source: https://github.com/openai/gpt-2/blob/master/src/encoder.py
-# License:
-# Modified MIT License
-
-# Software Copyright (c) 2019 OpenAI
 
 # We don’t claim ownership of the content you create with GPT-2, so it is yours to do with as you please.
 # We only ask that you use GPT-2 responsibly and clearly indicate your content was created using GPT-2.
@@ -51,7 +47,7 @@ def bytes_to_unicode():
         if b not in bs:
             bs.append(b)
             cs.append(2**8 + n)
-            n += 1
+            n+=1
     cs = [chr(n) for n in cs]
     return dict(zip(bs, cs))
 
@@ -97,7 +93,7 @@ class Encoder:
                 break
             first, second = bigram
             new_word = []
-            i = 0
+            i=0
             while i < len(word):
                 try:
                     j = word.index(first, i)
@@ -109,7 +105,7 @@ class Encoder:
 
                 if word[i] == first and i < len(word) - 1 and word[i + 1] == second:
                     new_word.append(first + second)
-                    i += 2
+                    i+=2
                 else:
                     new_word.append(word[i])
                     i += 1
